@@ -1,0 +1,26 @@
+<app-menu [logged]="logged"></app-menu>
+<div class="container" *ngIf="logged.type=='klijent'">
+    <h2>Vas profil</h2>
+    <img mat-card-image [src]="logged.user_photo ? logged.user_photo : '../../assets/user-logo.jpg'">
+    <mat-divider></mat-divider>
+    <div class="content">
+    {{logged.firstname}}<br/>
+    {{logged.lastname}}<br/>
+    {{logged.email}}<br/>
+    {{logged.phone}}<br/>
+    </div>
+    <mat-divider></mat-divider>
+</div>
+<div class="container" *ngIf="logged.type=='agencija'">
+    <h2>Vas profil</h2>
+    <img mat-card-image [src]="logged.user_photo ? logged.user_photo : '../../assets/user-logo.jpg'">
+    <mat-divider></mat-divider>
+    <div class="content">
+    {{logged.agencyName}}<br/>
+    {{logged.street}} {{logged.streetNum}} {{logged.city}} {{logged.state}}<br/>
+    {{logged.description}}<br/>
+    {{logged.email}}<br/>
+    {{logged.phone}}<br/>
+    </div>
+    <mat-divider></mat-divider>
+</div>

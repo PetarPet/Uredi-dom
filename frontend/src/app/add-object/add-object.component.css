@@ -1,0 +1,19 @@
+
+h2{
+    margin-left: 30px;
+    margin-top: 20px;
+    font-size: 25px;
+}
+
+button{
+    font-size: 30px;
+}
+
+.error{
+    color: red;
+    font-size: 18px;
+    justify-content: center;
+    text-align: center;    
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    margin-bottom: 20px;
+}

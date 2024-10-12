@@ -1,0 +1,37 @@
+<app-menu [logged]="logged"></app-menu>
+
+<mat-grid-list cols="1" rowHeight="100%">
+    <mat-grid-tile>
+
+        <div class="example-form">
+
+            <div class='AboveLabel'>
+                Zahtev za saradnjom
+            </div>
+            
+            <div *ngIf="message!='Zahtev poslat!'" [class.error]="message">{{message}}</div>
+            <div *ngIf="message=='Zahtev poslat!'" [class.succ]="message">{{message}}</div>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-select [(ngModel)]="idO" placeholder="Odaberite objekat">
+                    <mat-option [value]="m.idO" *ngFor="let m of myObjects"> {{m.state}} {{m.city}} {{m.street}} {{m.streetNum}} {{m.type}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <!--Datum od-->
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Datum pocetka radova</mat-label>
+                <input matInput type="date" placeholder="Datum pocetka radova" [(ngModel)]="dateFrom">
+            </mat-form-field>
+
+            <!--Datum do-->
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Datum kraja radova</mat-label>
+                <input matInput type="date" placeholder="Datum kraja radova" [(ngModel)]="dateTo">
+            </mat-form-field>
+
+            <button mat-raised-button color="accent" class="example-full-width" (click)="sendRequest()">
+                    Posalji zahtev
+            </button>
+            </div>
+    </mat-grid-tile>
+</mat-grid-list>

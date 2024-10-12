@@ -1,0 +1,13 @@
+<app-menu [logged]="logged"></app-menu>
+<h2>Skica vaseg objekta</h2> <br>
+<div [class.error]="message">{{message}}</div>
+<mat-grid-list cols="3" rowHeight="500px">
+    <mat-grid-tile colspan="2" rowspan="1">
+        <app-canvas [mySketch]="embeddedSketch"></app-canvas>
+    </mat-grid-tile>
+    <mat-grid-tile id="side">  
+        <button mat-raised-button color="accent" class="example-full-width" (click)="add()">
+            Dodaj novi objekat
+        </button>
+    </mat-grid-tile>
+</mat-grid-list>

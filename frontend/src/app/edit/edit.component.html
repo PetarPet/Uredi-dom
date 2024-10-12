@@ -1,0 +1,114 @@
+<app-menu [logged]="logged"></app-menu>
+<mat-grid-list cols="1" [rowHeight]="'1100px'" *ngIf="user">
+    <mat-grid-tile> 
+        <div class="example-form">
+            <div class='AboveLabel'>
+                Izmeni podatke
+            </div>
+            <div [class.error]="message">{{message}}</div>
+
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Email</mat-label>
+                <input matInput type="text" placeholder="example@gmail.com" [(ngModel)]="user.email">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Telefon</mat-label>
+                <input matInput type="text" placeholder="Telefon: 123/456-7890" [(ngModel)]="user.phone">
+            </mat-form-field>
+
+            <!--KLIJENT SELECTED-->
+            <div *ngIf="user.type=='klijent'">
+                <!--IME-->
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <input matInput type="text" placeholder="Ime" [(ngModel)]="user.firstname">
+                </mat-form-field>
+                <!--PREZIME-->
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <input matInput type="text" placeholder="Prezime" [(ngModel)]="user.lastname">
+                </mat-form-field>
+                <button mat-raised-button color="primary" class="example-full-width" (click)="editUser()">
+                    Izmeni podatke
+                </button>
+            </div>
+
+            <div *ngIf="user.type=='agencija'">
+                <!--NAZIV AGENCIJE-->
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <input matInput type="text" placeholder="Naziv agencije" [(ngModel)]="user.agencyName">
+                </mat-form-field>
+                <!--DRZAVA-->
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <input matInput type="text" placeholder="Drzava" [(ngModel)]="user.state">
+                </mat-form-field>
+                <!--GRAD-->
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <input matInput type="text" placeholder="Grad" [(ngModel)]="user.city">
+                </mat-form-field>
+                <!--ULICA-->
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <input matInput type="text" placeholder="Ulica" [(ngModel)]="user.street">
+                </mat-form-field>
+                <!--BROJ-->
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <input matInput type="text" placeholder="Broj" [(ngModel)]="user.streetNum">
+                </mat-form-field>
+                <!--MAT BROJ-->
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <input matInput type="text" placeholder="Maticni broj" [(ngModel)]="user.mb">
+                </mat-form-field>
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <textarea matInput placeholder="Unesite kratak opis agencije" [(ngModel)]="user.description"></textarea>
+                </mat-form-field>
+                <button mat-raised-button color="primary" class="example-full-width" (click)="editAgency()">
+                    Izmeni podatke
+                </button>
+            </div>
+        </div>
+    </mat-grid-tile>
+</mat-grid-list>
+
+<mat-grid-list cols="1" [rowHeight]="'1100px'" *ngIf="worker">
+    <mat-grid-tile> 
+        <div class="example-form">
+            <div class='AboveLabel'>
+                Izmeni podatke
+            </div>
+            <div [class.error]="message">{{message}}</div>
+
+            <!--IME-->
+            <mat-form-field class="example-full-width" appearance="fill">
+                <input matInput type="text" placeholder="Ime" [(ngModel)]="worker.firstname">
+            </mat-form-field>
+
+            <!--PREZIME-->
+            <mat-form-field class="example-full-width" appearance="fill">
+                <input matInput type="text" placeholder="Prezime" [(ngModel)]="worker.lastname">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Email</mat-label>
+                <input matInput type="text" placeholder="example@gmail.com" [(ngModel)]="worker.email">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Telefon</mat-label>
+                <input matInput type="text" placeholder="Telefon: 123/456-7890" [(ngModel)]="worker.phone">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Specijalizacija</mat-label>
+                <input matInput type="text" placeholder="Specijalizacija" [(ngModel)]="worker.speciality">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Agencija</mat-label>
+                <input matInput type="text" placeholder="Agencija" [(ngModel)]="worker.agency">
+            </mat-form-field>
+
+            <button mat-raised-button color="primary" class="example-full-width" (click)="editWorker()">
+                Izmeni podatke
+            </button>
+        </div>
+    </mat-grid-tile>
+</mat-grid-list>

@@ -1,0 +1,131 @@
+<app-menu [logged]="logged"></app-menu>
+<mat-divider id="divider"></mat-divider>
+<div class="buttons">
+    <button mat-raised-button class="example-full-width" (click)="showRequests()">
+        Prikazi zahteve
+    </button>
+    <button mat-raised-button class="example-full-width" (click)="showActives()">
+        Prikazi aktivne
+    </button>
+    <button mat-raised-button class="example-full-width" (click)="showFinised()">
+        Prikazi zavrsene
+    </button>
+    <button mat-raised-button color="accent" class="example-full-width" (click)="showAll()">
+        Prikazi sve
+    </button>
+</div>
+<mat-divider></mat-divider>
+<table #MatTable mat-table [dataSource]="myObjects" class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+    <!-- State Column -->
+    <ng-container matColumnDef="state">
+        <th mat-header-cell *matHeaderCellDef> Drzava </th>
+        <td mat-cell *matCellDef="let element"> {{element.state}} </td>
+    </ng-container>
+
+    <!-- City Column -->
+    <ng-container matColumnDef="city">
+        <th mat-header-cell *matHeaderCellDef> Grad </th>
+        <td mat-cell *matCellDef="let element"> {{element.city}} </td>
+    </ng-container>
+
+    <!-- Street Column -->
+    <ng-container matColumnDef="street">
+        <th mat-header-cell *matHeaderCellDef> Ulica </th>
+        <td mat-cell *matCellDef="let element"> {{element.street}} </td>
+    </ng-container>
+
+    <!-- Street Num Column -->
+    <ng-container matColumnDef="streetNum">
+        <th mat-header-cell *matHeaderCellDef> Broj </th>
+        <td mat-cell *matCellDef="let element"> {{element.streetNum}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="type">
+        <th mat-header-cell *matHeaderCellDef> Tip </th>
+        <td mat-cell *matCellDef="let element"> {{element.type}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="jobs">
+        <th mat-header-cell *matHeaderCellDef> Posao </th>
+        <td mat-cell *matCellDef="let element">
+            <div *ngIf="element.jobs.length>0">
+            <table #MatTableInside mat-table [dataSource]="element.jobs" class="mat-elevation-z8" id="tableInside">
+                
+                <ng-container matColumnDef="jobID">
+                    <th mat-header-cell *matHeaderCellDef>ID</th>
+                    <td mat-cell *matCellDef="let element2"> {{element2.jobID}} </td>
+                </ng-container>
+                <ng-container matColumnDef="status">
+                    <th mat-header-cell *matHeaderCellDef> Status posla</th>
+                    <td mat-cell *matCellDef="let element2"> {{element2.status}} </td>
+                </ng-container>
+                <ng-container matColumnDef="datumOD">
+                    <th mat-header-cell *matHeaderCellDef> Pocetak </th>
+                    <td mat-cell *matCellDef="let element2"> {{element2.datumOD}} </td>
+                </ng-container>
+                <ng-container matColumnDef="datumDO">
+                    <th mat-header-cell *matHeaderCellDef> Kraj </th>
+                    <td mat-cell *matCellDef="let element2"> {{element2.datumDO}} </td>
+                </ng-container>
+                <ng-container matColumnDef="response">
+                    <th mat-header-cell *matHeaderCellDef> Odgovor agencije </th>
+                    <td mat-cell *matCellDef="let element2" [class.green]="element2.odgovorAgencije=='Prihvatila'"
+                        [class.red]="element2.odgovorAgencije=='Odbila'"> 
+                        {{element2.odgovorAgencije}} 
+                    </td>
+                </ng-container>
+                <ng-container matColumnDef="offer">
+                    <th mat-header-cell *matHeaderCellDef> Ponuda </th>
+                    <td [style.width]="'200px'" [style.padding]="'10px'" mat-cell *matCellDef="let element2"> {{element2.ponuda}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="comment">
+                    <th mat-header-cell *matHeaderCellDef></th>
+                    <td mat-cell *matCellDef="let element2">
+                        <button *ngIf="element2.status=='zavrsen'" mat-raised-button [style.margin]="'0'" (click)="comment(element2.agency,element2.jobID)">Ostavi komentar</button>
+                    </td>
+                  </ng-container>
+
+                  <ng-container matColumnDef="accept">
+                    <th mat-header-cell *matHeaderCellDef></th>
+                    <td mat-cell *matCellDef="let element2">
+                        <button *ngIf="element2.status=='zahtev' && element2.odgovorAgencije=='Prihvatila'" 
+                        color="primary" mat-raised-button [style.margin]="'0'" 
+                        (click)="accept(element.idO,element2.jobID)">Prihvati ponudu</button>
+                    </td>
+                  </ng-container>
+
+                  <ng-container matColumnDef="reject">
+                    <th mat-header-cell *matHeaderCellDef></th>
+                    <td mat-cell *matCellDef="let element2">
+                        <button *ngIf="element2.status=='zahtev' && element2.odgovorAgencije=='Prihvatila'" 
+                        color="warn" mat-raised-button [style.margin]="'0'" 
+                        (click)="reject(element.idO,element2.jobID)">Odbij ponudu</button>
+                    </td>
+                  </ng-container>
+
+                  <ng-container matColumnDef="showProgress">
+                    <th mat-header-cell *matHeaderCellDef></th>
+                    <td mat-cell *matCellDef="let element2">
+                        <button *ngIf="element2.status=='aktivan' && element2.odgovorAgencije=='Prihvatila'" 
+                        color="accent" mat-raised-button [style.margin]="'0'" 
+                        (click)="showProgress(element.sketch,element.idO,element2.jobID)">Prikazi napredak</button>
+                    </td>
+                  </ng-container>
+               
+                <tr mat-header-row *matHeaderRowDef="displayedColumnsInside"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumnsInside;"></tr>
+            </table>
+            </div>
+            <div *ngIf="element.jobs.length==0">
+                Nema poslova
+            </div>
+        </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

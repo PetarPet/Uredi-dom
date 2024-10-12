@@ -1,0 +1,36 @@
+#divider {
+    border: #673ab7 3px solid;
+}
+
+table {
+    width: 100%;
+}
+
+
+.Search-Label{
+    font-size: 30px;
+    font-weight: bold;
+    color: black;
+    margin-left: 30px;
+    margin-top: 30px;
+}
+
+.Search-button button {
+    font-size: 25px;
+    height: 50px;
+}
+
+.Search-input{
+    margin-left: 30px;
+    margin-top: 30px;
+}
+
+.Sort-button{
+    margin-top: 25px;
+    font-size: 25px;
+    height: 40px;
+}
+
+#checkbox {
+    margin-left: 20px;
+}

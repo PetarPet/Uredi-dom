@@ -1,0 +1,75 @@
+<mat-toolbar>
+    Uredi dom
+    <!--Ako niko nije ulogovan-->
+    <div class="buttons-right" *ngIf="logged==null">
+        <button mat-flat-button color="primary" class="buttons-right" (click)="home()">
+            Pocetna
+        </button>
+        <button mat-flat-button color="primary" class="example-full-width" (click)="login()">
+            Prijava
+        </button>
+        <button mat-flat-button color="primary" class="example-full-width" (click)="register()">
+            Registracija
+        </button>
+    </div>
+
+    <!--Client menu-->
+    <div class="buttons-right" *ngIf="logged!=null && logged.type=='klijent'">
+        <button mat-flat-button color="primary" class="buttons-right" (click)="profile()">
+            Profil
+        </button>
+        <button mat-flat-button color="primary" class="buttons-right" (click)="objects()">
+            Objekti
+        </button>
+        <button mat-flat-button color="primary" class="buttons-right" (click)="agencyList()">
+            Agencije
+        </button>
+        <button mat-flat-button color="primary" class="buttons-right" (click)="clientJobs()">
+            Poslovi
+        </button>
+        <button mat-flat-button color="primary" class="buttons-right" (click)="changePassword()">
+            Pocetna
+        </button>
+        <button mat-flat-button color="warn" class="buttons-right" (click)="logout()">
+            Odjava
+        </button>
+    </div>
+
+    <!--Agency menu-->
+    <div class="buttons-right" *ngIf="logged!=null && logged.type=='agencija'">
+        <button mat-flat-button color="primary" class="buttons-right" (click)="profile()">
+            Profil
+        </button>
+        <button mat-flat-button color="primary" class="buttons-right" (click)="agencyJobs()">
+            Poslovi
+        </button>
+        <button mat-flat-button color="primary" class="buttons-right" (click)="changePassword()">
+            Pocetna
+        </button>
+        <button mat-flat-button color="warn" class="buttons-right" (click)="logout()">
+            Odjava
+        </button>
+    </div>
+
+    <!--Admin menu-->
+    <div class="buttons-right" *ngIf="logged!=null && logged.type=='admin'">
+       <button mat-flat-button color="primary" class="buttons-right" (click)="changePassword()">
+            Pocetna
+        </button>
+        <button mat-flat-button color="primary" class="buttons-right" (click)="registerRequests()">
+            Zahtevi za registraciju
+        </button>
+        <button mat-flat-button color="primary" class="buttons-right" (click)="showAll()">
+            Svi korisnici
+        </button>
+        <button mat-flat-button color="primary" class="buttons-right" (click)="showJobs()">
+            Poslovi
+        </button>
+        <button mat-flat-button color="warn" class="buttons-right" (click)="logout()">
+            Odjava
+        </button>
+    </div>
+
+</mat-toolbar>
+
+<mat-divider id="firstDivider"></mat-divider>

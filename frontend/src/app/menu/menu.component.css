@@ -1,0 +1,21 @@
+.buttons-right{
+    margin-left: auto;
+}
+
+mat-toolbar {
+    color: #673ab7;
+    font-size: 50px;
+    font-weight: bold;
+    height: 100px;
+    padding-left: 30px;
+}
+
+mat-toolbar button {
+    font-size: 20px;
+    height: 50px;
+}
+
+button {
+    margin: 5px;
+    font-size: 18px;
+}

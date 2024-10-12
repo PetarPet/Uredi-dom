@@ -1,0 +1,101 @@
+<app-menu [logged]="logged"></app-menu>
+<mat-divider id="divider"></mat-divider>
+<table #MatTable mat-table [dataSource]="allWorkers" class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+    <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>ID</th>
+        <td mat-cell *matCellDef="let element">
+            {{element.workerID}}
+        </td>
+    </ng-container>
+
+    <ng-container matColumnDef="firstname">
+        <th mat-header-cell *matHeaderCellDef>Ime</th>
+        <td mat-cell *matCellDef="let element">
+            {{element.firstname}}
+        </td>
+    </ng-container>
+
+    <ng-container matColumnDef="lastname">
+        <th mat-header-cell *matHeaderCellDef>Ime</th>
+        <td mat-cell *matCellDef="let element">
+            {{element.lastname}}
+        </td>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef>email</th>
+        <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="phone">
+        <th mat-header-cell *matHeaderCellDef>Telefon</th>
+        <td mat-cell *matCellDef="let element"> {{element.phone}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="speciality">
+        <th mat-header-cell *matHeaderCellDef>Specijalizacija</th>
+        <td mat-cell *matCellDef="let element"> {{element.speciality}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="edit">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let element" [style.padding-left]="'10px'">
+            <button mat-raised-button [style.margin]="'0'" (click)="editWorker(element)">Izmeni radnika</button>
+        </td>
+    </ng-container>
+
+    <ng-container matColumnDef="delete">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let element">
+            <button color="warn" mat-raised-button [style.margin]="'0'" (click)="deleteWorker(element.workerID)">Obrisi
+                radnika</button>
+        </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+<mat-divider id="divider"></mat-divider>
+<mat-grid-list cols="1" [rowHeight]="'1100px'">
+    <mat-grid-tile>
+        <div class="example-form">
+            <div class='AboveLabel'>
+                Dodaj radnika
+            </div>
+            <div [class.error]="message">{{message}}</div>
+
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Ime</mat-label>
+                <input matInput type="text" placeholder="Ime" [(ngModel)]="firstname">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Prezime</mat-label>
+                <input matInput type="text" placeholder="Prezime" [(ngModel)]="lastname">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Email</mat-label>
+                <input matInput type="text" placeholder="example@gmail.com" [(ngModel)]="email">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Telefon</mat-label>
+                <input matInput type="text" placeholder="Telefon: 123/456-7890" [(ngModel)]="phone">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Specijalizacija</mat-label>
+                <input matInput type="text" placeholder="Specijalizacija" [(ngModel)]="speciality">
+            </mat-form-field>
+
+            <button mat-raised-button color="primary" class="example-full-width" (click)="addWorker()">
+                Dodaj radnika
+            </button>
+        </div>
+    </mat-grid-tile>
+</mat-grid-list>

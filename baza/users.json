@@ -1,0 +1,103 @@
+[{
+  "_id": {
+    "$oid": "64a48b62b38acc5023a936db"
+  },
+  "username": "admin",
+  "password": "Admin123@",
+  "phone": "011/111-0111",
+  "email": "admin@gmail.com",
+  "status": "aktivan",
+  "type": "admin"
+},{
+  "_id": {
+    "$oid": "64ab5793b8662c5bd6a92cb9"
+  },
+  "username": "mojakucica",
+  "password": "Mojakucica1!",
+  "phone": "011/222-3333",
+  "email": "mojakucica@gmail.com",
+  "status": "aktivan",
+  "type": "agencija",
+  "agencyName": "Moja kucica",
+  "state": "Srbija",
+  "city": "Beograd",
+  "street": "Ustanicka",
+  "streetNum": "50",
+  "mb": "10203040",
+  "description": "Moja kucica je agencija koja sredjuje vas dom po najvisim standardima",
+  "comments": [
+    {
+      "commentText": "Sve preporuke!",
+      "jobID": 1,
+      "grade": 5,
+      "client": "petar"
+    },
+    {
+      "commentText": "Sve preporuke!",
+      "jobID": 1,
+      "grade": 5,
+      "client": "petar"
+    },
+    {
+      "commentText": "Sve preporuke!",
+      "jobID": 1,
+      "grade": 5,
+      "client": "petar"
+    }
+  ],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64ab57edb8662c5bd6a92cbe"
+  },
+  "username": "agencija1",
+  "password": "Agencija1!",
+  "phone": "011/456-4555",
+  "email": "agencija1@gmail.com",
+  "status": "novi",
+  "type": "agencija",
+  "agencyName": "Agencija1",
+  "state": "Srbija",
+  "city": "Nis",
+  "street": "Cara Lazara",
+  "streetNum": "10",
+  "mb": "20509080",
+  "description": "Agencija1 opis",
+  "comments": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64ab5a034d44486ba98e18e7"
+  },
+  "username": "petar",
+  "password": "Petar0598@",
+  "firstname": "Petar",
+  "lastname": "Petrovic",
+  "phone": "064/427-2992",
+  "email": "petarpetrovic0598@gmail.com",
+  "status": "aktivan",
+  "profileImg": "spongebob.png",
+  "type": "klijent",
+  "comments": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64ab5b1ef4b23283fcd2a1c5"
+  },
+  "username": "trionix",
+  "password": "Trionix1!",
+  "phone": "023/222-3333",
+  "email": "trionix@gmail.com",
+  "status": "aktivan",
+  "profileImg": "trionix-agency.jpg",
+  "type": "agencija",
+  "agencyName": "Trionix",
+  "state": "Srbija",
+  "city": "Nis",
+  "street": "Dusanova",
+  "streetNum": "5",
+  "mb": "89909080",
+  "description": "Trionix agencija sredjuje vas dom po najnizim cenama",
+  "comments": [],
+  "__v": 0
+}]

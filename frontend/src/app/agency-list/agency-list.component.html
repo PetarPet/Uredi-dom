@@ -1,0 +1,108 @@
+<app-menu [logged]="logged"></app-menu>
+<mat-divider id="divider"></mat-divider>
+<mat-grid-list cols="1" rowHeight="300px">
+    <mat-grid-tile>
+        <div [style.text-align]="'center'">
+            <div class='Search-Label'>
+                Pretraga
+            </div>
+
+            <div class="Search-input">
+                <mat-form-field appearance="fill">
+                    <mat-label>Naziv agencije</mat-label>
+                    <input matInput type="text" [(ngModel)]="agencyName">
+                </mat-form-field>
+                &nbsp;
+                <mat-form-field appearance="fill">
+                    <mat-label>Adresa</mat-label>
+                    <input matInput type="text" [(ngModel)]="address" placeholder="Drzava,Grad,Ulica">
+                </mat-form-field>
+            </div>
+
+            <div class="Search-button">
+                <button mat-raised-button color="warn" (click)="search()">Pretrazi</button>
+            </div>
+
+            <div class='Search-Label' [style.text-align]="'center'">
+                <div class="Sort-button">
+                    <button mat-raised-button color="primary" (click)="sortByName()">Sortiraj po nazivu</button>
+                    <input id="checkbox" type="checkbox" [(ngModel)]="increasing"> <span
+                        [style.font-weight]="'500'">opadajuce</span>
+                </div>
+            </div>
+
+        </div>
+    </mat-grid-tile>
+</mat-grid-list>
+<mat-divider id="divider"></mat-divider>
+
+<table #MatTable mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="agencyName">
+        <th mat-header-cell *matHeaderCellDef> Ime </th>
+        <td mat-cell *matCellDef="let element"> {{element.agencyName}} </td>
+    </ng-container>
+
+    <!-- State Column -->
+    <ng-container matColumnDef="state">
+        <th mat-header-cell *matHeaderCellDef> Drzava </th>
+        <td mat-cell *matCellDef="let element"> {{element.state}} </td>
+    </ng-container>
+
+    <!-- City Column -->
+    <ng-container matColumnDef="city">
+        <th mat-header-cell *matHeaderCellDef> Grad </th>
+        <td mat-cell *matCellDef="let element"> {{element.city}} </td>
+    </ng-container>
+
+    <!-- Street Column -->
+    <ng-container matColumnDef="street">
+        <th mat-header-cell *matHeaderCellDef> Ulica </th>
+        <td mat-cell *matCellDef="let element"> {{element.street}} </td>
+    </ng-container>
+
+    <!-- Street Num Column -->
+    <ng-container matColumnDef="streetNum">
+        <th mat-header-cell *matHeaderCellDef> Broj </th>
+        <td mat-cell *matCellDef="let element"> {{element.streetNum}} </td>
+    </ng-container>
+
+    <!-- Phone Column -->
+    <ng-container matColumnDef="phone">
+        <th mat-header-cell *matHeaderCellDef> Telefon </th>
+        <td mat-cell *matCellDef="let element"> {{element.phone}} </td>
+    </ng-container>
+
+    <!-- Email Column -->
+    <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef> Email </th>
+        <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+    </ng-container>
+
+    <!-- Descriotion Column -->
+    <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef> Opis </th>
+        <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+    </ng-container>
+    
+    <ng-container matColumnDef="requestWork">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let element">
+            <button mat-raised-button [style.margin]="'0'" (click)="request(element.username)">Zatrazi saradnju</button>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="comments">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let element">
+            <button color="accent" mat-raised-button [style.margin]="'0'" (click)="showComments(element)">Vidi komentare</button>
+        </td>
+      </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

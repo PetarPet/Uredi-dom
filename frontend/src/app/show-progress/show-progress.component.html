@@ -1,0 +1,72 @@
+<app-menu [logged]="logged"></app-menu>
+<mat-divider id="divider"></mat-divider>
+<mat-grid-list cols="5" rowHeight="500px" *ngIf="logged.type=='klijent'">
+    <div class="canvas">
+        <mat-grid-tile colspan="3">
+            <app-canvas [mySketch]="mySketch"></app-canvas>
+            </mat-grid-tile>
+        <mat-grid-tile id="legend" colspan="1">
+        <div class="cubewhite"></div> radovi nisu zapoceti
+        <div class="cubered"></div> radovi u toku
+        <div class="cubegreen"></div> radovi zavrseni
+        </mat-grid-tile>
+        <mat-grid-tile colspan="1">
+        <button [style.width]="'100px'" *ngIf="canPay" mat-raised-button color="primary" class="example-full-width" (click)="pay()">
+            Plati
+        </button>
+        </mat-grid-tile>
+    </div>
+</mat-grid-list>
+
+<mat-grid-list cols="6" rowHeight="500px" *ngIf="logged.type=='agencija'">
+    <div class="canvas">
+        <mat-grid-tile colspan="4">
+            <app-canvas [mySketch]="mySketch"></app-canvas>
+        </mat-grid-tile>
+        <mat-grid-tile id="legend" colspan="2">
+        <div class="cubewhite"></div> radovi nisu zapoceti
+        <div class="cubered"></div> radovi u toku
+        <div class="cubegreen"></div> radovi zavrseni
+        </mat-grid-tile>
+    </div>
+</mat-grid-list>
+<mat-divider id="divider" *ngIf="logged.type=='agencija'"></mat-divider>
+<div *ngIf="logged.type=='agencija' && (workers.length<(roomNames.length-currentlyWorking.length))">
+    <h2>Nemate dovoljno radnika</h2>
+</div> 
+<div class="form" *ngIf="logged.type=='agencija' && (workers.length>=(roomNames.length-currentlyWorking.length))">
+    <h2>Dodajte radnika na posao</h2>
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-select [(ngModel)]="workerToAddID" placeholder="Izaberite radnika">
+            <mat-option value="{{worker.workerID}}" *ngFor="let worker of workers">{{worker.firstname}} {{worker.lastname}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <br/>
+    <button [style.margin-bottom]="'50px'" mat-raised-button color="accent" class="example-full-width" (click)="addWorker()">
+        Dodaj radnika
+    </button>
+    
+    <div *ngIf="currentlyWorking.length>=roomNames.length">
+    <h2>Promenite status posla</h2>
+
+    <div [class.error]="message">{{message}}</div>
+    <!--Soba-->
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-select [(ngModel)]="roomName" placeholder="Odaberite sobu">
+            <mat-option value="{{name}}" *ngFor="let name of roomNames">{{name}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <br/>
+    <!--Status-->
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-select [(ngModel)]="status" placeholder="Postavite status posla">
+            <mat-option value="u toku">Radovi u toku</mat-option>
+            <mat-option value="zavrseno">Zavrseno</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <button [style.margin-bottom]="'50px'" mat-raised-button color="accent" class="example-full-width" (click)="changeStatus()">
+        Promeni status
+    </button>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+<mat-grid-list cols="1" rowHeight="100%">
+    <mat-grid-tile>
+        <!--TILE HEADER-->
+        <mat-grid-tile-header [style.background]="'#673ab7'" [style.color]="'#fafafa'" [style.padding-top]="'10px'"
+            [style.padding-bottom]="'10px'">
+            <h2>Administrator prijava</h2>
+        </mat-grid-tile-header>
+
+        <div class="example-form">
+        <div [class.error]="message">{{message}}</div>
+        <!--KORISNICKO IME INPUT-->
+        <mat-form-field class="example-full-width" appearance="fill">
+            <input matInput type="text" placeholder="Korisnicko ime" [(ngModel)]="username">
+        </mat-form-field>
+
+        <!--LOZINKA INPUT-->
+        <mat-form-field class="example-full-width" appearance="fill">
+            <input matInput type="password" placeholder="Lozinka" [(ngModel)]="password">
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" class="example-full-width" (click)="login()">
+            Prijavi se
+        </button>
+
+        </div>
+        <mat-grid-tile-footer [style.background]="'#673ab7'" [style.color]="'#fafafa'" [style.padding-top]="'10px'"
+            [style.padding-bottom]="'10px'">
+            @Petar
+        </mat-grid-tile-footer>
+    </mat-grid-tile>
+</mat-grid-list>

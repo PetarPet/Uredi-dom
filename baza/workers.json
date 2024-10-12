@@ -1,0 +1,39 @@
+[{
+  "_id": {
+    "$oid": "64ab72cf0be009cc8bd2fc29"
+  },
+  "workerID": 1,
+  "firstname": "Nikola",
+  "lastname": "Nikolic",
+  "email": "nikolanikolic@gmail.com",
+  "phone": "011/222-3344",
+  "speciality": "keramicar",
+  "agency": "mojakucica",
+  "reserved": [
+    {
+      "datumOD": "2023-07-17",
+      "datumDO": "2023-07-24",
+      "jobID": 1
+    }
+  ],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64ab72ef0be009cc8bd2fc2d"
+  },
+  "workerID": 2,
+  "firstname": "Marko",
+  "lastname": "Markovic",
+  "email": "markomarkovic@gmail.com",
+  "phone": "064/455-5566",
+  "speciality": "moler",
+  "agency": "mojakucica",
+  "reserved": [
+    {
+      "datumOD": "2023-07-17",
+      "datumDO": "2023-07-24",
+      "jobID": 1
+    }
+  ],
+  "__v": 0
+}]

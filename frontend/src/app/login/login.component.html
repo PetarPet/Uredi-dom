@@ -1,0 +1,36 @@
+<mat-grid-list cols="1" rowHeight="100%">
+    <mat-grid-tile>
+        <div class="example-form">
+            <button mat-icon-button color="primary" class="example-full-width" (click)="toHome()">
+                <mat-icon>home</mat-icon>
+              </button>
+            <div class='AboveLabel'>
+                Prijava
+            </div>
+            <div [class.error]="message">{{message}}</div>
+            <!--KORISNICKO IME INPUT-->
+            <mat-form-field class="example-full-width" appearance="fill">
+                <input matInput type="text" placeholder="Korisnicko ime" [(ngModel)]="username">
+            </mat-form-field>
+
+            <!--LOZINKA INPUT-->
+            <mat-form-field class="example-full-width" appearance="fill">
+                <input matInput type="password" placeholder="Lozinka" [(ngModel)]="password">
+            </mat-form-field>
+
+            <!--TIP INPUT-->
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-select [(ngModel)]="type" placeholder="Odaberite tip korisnika">
+                    <mat-option value="klijent">Klijent</mat-option>
+                    <mat-option value="agencija">Agencija</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <button mat-raised-button color="primary" class="example-full-width" (click)="login()">
+                Prijavi se
+            </button>
+            <button mat-raised-button [style.margin-top]="'10px'" color="accent" class="example-full-width"
+                (click)="toRegister()">Idite na registraciju</button>
+        </div>
+    </mat-grid-tile>
+</mat-grid-list>

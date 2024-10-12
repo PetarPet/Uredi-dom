@@ -1,0 +1,88 @@
+<app-menu [logged]="logged"></app-menu>
+<mat-divider id="divider"></mat-divider>
+<div class="addNew">
+    <button mat-raised-button color="accent" class="example-full-width" (click)="addNew()">
+        Dodaj korisnika
+    </button>
+</div>
+<mat-divider id="divider"></mat-divider>
+<table #MatTable mat-table [dataSource]="allUsers" class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+    <ng-container matColumnDef="basicInfo">
+        <th mat-header-cell *matHeaderCellDef>Osnovni podaci</th>
+        <td mat-cell *matCellDef="let element">
+            <div *ngIf="element.type=='klijent'">
+                <b>
+                {{element.firstname}} <br />
+                {{element.lastname}} <br />
+                </b>
+            </div>
+            <div *ngIf="element.type=='agencija'">
+                <b>{{element.agencyName}}</b><br />
+                MB: {{element.mb}} <br />
+                Opis: <br/>
+                {{element.description}}
+            </div>
+        </td>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef>email</th>
+        <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+    </ng-container>
+
+    <!-- Adresa Column -->
+    <ng-container matColumnDef="adresa">
+        <th mat-header-cell *matHeaderCellDef> Adresa </th>
+        <td  mat-cell *matCellDef="let element">
+            <div *ngIf="element.type=='agencija'"> 
+            {{element.street}} {{element.streetNum}} {{element.city}}
+            {{element.state}}
+            </div>
+        </td>
+    </ng-container>
+
+    <ng-container matColumnDef="phone">
+        <th mat-header-cell *matHeaderCellDef>Telefon</th>
+        <td mat-cell *matCellDef="let element"> {{element.phone}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="type">
+        <th mat-header-cell *matHeaderCellDef> Tip </th>
+        <td mat-cell *matCellDef="let element"> {{element.type}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef> Status </th>
+        <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="edit">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let element" [style.padding-left]="'10px'">
+            <button  color="primary" mat-raised-button [style.margin]="'0'" (click)="edit(element)">Izmeni</button>
+        </td>
+    </ng-container>
+
+    <ng-container matColumnDef="delete">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let element">
+            <button color="warn" mat-raised-button [style.margin]="'0'" (click)="deleteUser(element.username)">Obrisi</button>
+        </td>
+    </ng-container>
+
+    <ng-container matColumnDef="workers">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let element">
+            <div *ngIf="element.type=='agencija'">
+            <button color="accent" mat-raised-button [style.margin]="'0'" (click)="showWorkers(element.username)">Radnici</button>
+            </div>
+        </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

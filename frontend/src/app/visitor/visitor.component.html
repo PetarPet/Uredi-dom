@@ -1,0 +1,53 @@
+<app-menu [logged]='null'></app-menu>
+<div [style.text-align]="'center'">
+    <div class='Search-Label'>
+        Pretraga
+    </div>
+
+    <div class="Search-input">
+        <mat-form-field appearance="fill">
+            <mat-label>Naziv agencije</mat-label>
+            <input matInput type="text" [(ngModel)]="agencyName">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Adresa</mat-label>
+            <input matInput type="text" [(ngModel)]="address" placeholder="Drzava,Grad,Ulica">
+        </mat-form-field>
+    </div>
+
+    <div class="Search-button">
+        <button mat-raised-button color="warn" (click)="search()">Pretrazi</button>
+    </div>
+</div>
+<mat-divider id="secondDivider"></mat-divider>
+<div class='Search-Label' [style.text-align]="'center'">
+    Sve agencije
+    <div *ngIf="allAgencies!=null">
+    <div class="Sort-button">
+        <button mat-raised-button color="primary" (click)="sortByName()">Sortiraj po nazivu</button>
+        <button mat-raised-button color="primary" (click)="sortByAddress()">Sortiraj po adresi</button>
+        <input id="checkbox" type="checkbox" [(ngModel)]="increasing"> <span [style.font-weight]="'500'">opadajuce</span>
+    </div>
+    </div>
+    <div *ngIf="allAgencies==null" [style.margin]="'20px'">
+        Nema registrovanih agencija u sistemu
+    </div>
+</div>
+<mat-grid-list cols="4" rowHeight="1:2" gutterSize="10px" [style.width]="'99%'" *ngIf="allAgencies!=null">
+    <mat-grid-tile *ngFor="let a of allAgencies" [colspan]="1" [rowspan]="1">
+
+        <mat-card class="example-card">
+            <mat-card-header [style.font]="'50px'">
+                <mat-card-title>{{a.agencyName}}</mat-card-title>
+            </mat-card-header>
+            <img mat-card-image [src]="a.user_photo ? a.user_photo : '../../assets/agency-logo.jpg'">
+            <mat-card-content>
+                {{a.description}}
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-raised-button color="accent" (click)="showComments(a)">Vidi komentare</button>
+            </mat-card-actions>
+        </mat-card>
+
+    </mat-grid-tile>
+</mat-grid-list>

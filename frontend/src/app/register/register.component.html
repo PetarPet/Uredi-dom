@@ -1,0 +1,122 @@
+<mat-grid-list cols="1" [rowHeight]="'1:1.5'">
+    <mat-grid-tile> 
+
+        <div class="example-form">
+            <div *ngIf="admin!='yes'">
+            <button mat-icon-button color="primary" class="example-full-width" (click)="toHome()">
+                <mat-icon>home</mat-icon>
+            </button>
+            </div>
+            <div class='AboveLabel'>
+                Registracija
+            </div>
+            
+            <div [class.error]="message"
+                *ngIf="message!='Uspesno ste se registrovali. Administrator ce proveriti vas zahtev!'">{{message}}</div>
+            <div [class.succ]="message"
+                *ngIf="message=='Uspesno ste se registrovali. Administrator ce proveriti vas zahtev!'">{{message}}</div>
+            <!--KORISNICKO IME INPUT-->
+            <mat-form-field class="example-full-width" appearance="fill">
+                <input matInput type="text" placeholder="Korisnicko ime" [(ngModel)]="username">
+            </mat-form-field>
+
+            <!--LOZINKA INPUT-->
+            <mat-form-field class="example-full-width" appearance="fill">
+                <input matInput type="password" placeholder="Lozinka" [(ngModel)]="password">
+            </mat-form-field>
+
+            <!--LOZINKA INPUT-->
+            <mat-form-field class="example-full-width" appearance="fill">
+                <input matInput type="password" placeholder="Potvrda lozinke" [(ngModel)]="passwordConfirmation">
+            </mat-form-field>
+
+            <!--PICTURE-->
+            <div *ngIf="admin!='yes'">
+            <div class="example-full-width">
+                <button type="button" [style.margin-bottom]="'20px'" mat-raised-button color="warn" (click)="profileImgInput.click()">Dodaj profilnu
+                    sliku</button>
+                <input hidden type="file" (change)="profileImgUpload($event)" accept="image/png, image/jpeg, image/jpg"
+                    #profileImgInput name="profileImg">
+                &nbsp;<div class="image-label-name">{{profileImgName}}</div>
+                <br /> <span class="image-label">{{messageImg}}</span>
+            </div>
+            </div>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <input matInput type="text" placeholder="example@gmail.com" [(ngModel)]="email">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="fill">
+                <input matInput type="text" placeholder="Telefon: 123/456-7890" [(ngModel)]="phone">
+            </mat-form-field>
+
+            <!--TIP INPUT-->
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-select [(ngModel)]="type" placeholder="Odaberite tip korisnika">
+                    <mat-option value="klijent">Klijent</mat-option>
+                    <mat-option value="agencija">Agencija</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <!--KLIJENT SELECTED-->
+            <div *ngIf="type=='klijent'">
+                <!--IME-->
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <input matInput type="text" placeholder="Ime" [(ngModel)]="firstname">
+                </mat-form-field>
+                <!--PREZIME-->
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <input matInput type="text" placeholder="Prezime" [(ngModel)]="lastname">
+                </mat-form-field>
+                <button mat-raised-button color="primary" class="example-full-width" (click)="registerUser()">
+                    Registruj se
+                </button>
+            </div>
+
+            <div *ngIf="type=='agencija'">
+                <!--NAZIV AGENCIJE-->
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <input matInput type="text" placeholder="Naziv agencije" [(ngModel)]="agencyName">
+                </mat-form-field>
+                <!--DRZAVA-->
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <input matInput type="text" placeholder="Drzava" [(ngModel)]="state">
+                </mat-form-field>
+                <!--GRAD-->
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <input matInput type="text" placeholder="Grad" [(ngModel)]="city">
+                </mat-form-field>
+                <!--ULICA-->
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <input matInput type="text" placeholder="Ulica" [(ngModel)]="street">
+                </mat-form-field>
+                <!--BROJ-->
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <input matInput type="text" placeholder="Broj" [(ngModel)]="streetNum">
+                </mat-form-field>
+                <!--MAT BROJ-->
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <input matInput type="text" placeholder="Maticni broj" [(ngModel)]="mb">
+                </mat-form-field>
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <textarea matInput placeholder="Unesite kratak opis agencije" [(ngModel)]="description"></textarea>
+                </mat-form-field>
+                <button mat-raised-button color="primary" class="example-full-width" (click)="registerAgency()">
+                    Registruj se
+                </button>
+            </div>
+
+            <div *ngIf="admin!='yes'">
+            <button mat-raised-button [style.margin-top]="'10px'" color="accent" class="example-full-width"
+                (click)="toLogin()">
+                Idite na prijavu
+            </button>
+            </div>
+            <div *ngIf="admin=='yes'">
+                <button mat-raised-button [style.margin-top]="'10px'" color="accent" class="example-full-width"
+                    (click)="toAdmin()">
+                    Nazad
+                </button>
+                </div>
+        </div>
+    </mat-grid-tile>
+</mat-grid-list>

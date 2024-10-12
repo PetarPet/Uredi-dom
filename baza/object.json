@@ -1,0 +1,52 @@
+[
+{
+  "idO":2,
+  "owner": "petar",
+  "type":"stan",
+  "area": "100",
+  "rooms": "3",
+  "state": "Serbia",
+  "city": "Belgrad",
+  "street": "Njegoseva",
+  "streetNum": "10",
+  "sketch": [
+            {
+                "type":"room",
+                "x":10,
+                "y":20,
+                "w":100,
+                "h":100
+            },
+            {
+                "type":"room",
+                "x":110,
+                "y":20,
+                "w":50,
+                "h":50
+            },
+            {
+                "type":"room",
+                "x":10,
+                "y":120,
+                "w":40,
+                "h":40
+            },
+            {
+                "type":"door",
+                "x":10,
+                "y":60
+            },
+            {
+                "type":"door",
+                "x":110,
+                "y":60
+            },
+            {
+                "type":"door",
+                "x":50,
+                "y":120
+            }
+        ],
+	"jobs":[]
+}
+]

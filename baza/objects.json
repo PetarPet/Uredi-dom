@@ -1,0 +1,64 @@
+[{
+  "_id": {
+    "$oid": "64ab6a395f3dce1158c5dba2"
+  },
+  "idO": 1,
+  "owner": "petar",
+  "type": "stan",
+  "area": "20",
+  "rooms": "2",
+  "state": "Srbija",
+  "city": "Beograd",
+  "street": "Beogradska",
+  "streetNum": "10",
+  "sketch": [
+    {
+      "type": "room",
+      "x": 100,
+      "y": 100,
+      "w": 200,
+      "h": 100,
+      "status": "zavrseno",
+      "name": "soba 1"
+    },
+    {
+      "type": "room",
+      "x": 300,
+      "y": 100,
+      "w": 100,
+      "h": 200,
+      "status": "zavrseno",
+      "name": "soba 2"
+    },
+    {
+      "type": "door",
+      "x": 300,
+      "y": 150,
+      "w": 0,
+      "h": 0,
+      "status": "",
+      "name": ""
+    },
+    {
+      "type": "door",
+      "x": 200,
+      "y": 100,
+      "w": 0,
+      "h": 0,
+      "status": "",
+      "name": ""
+    }
+  ],
+  "jobs": [
+    {
+      "jobID": 1,
+      "datumOD": "2023-07-17",
+      "datumDO": "2023-07-24",
+      "status": "zavrsen",
+      "agency": "mojakucica",
+      "odgovorAgencije": "Prihvatila",
+      "ponuda": "50000"
+    }
+  ],
+  "__v": 0
+}]

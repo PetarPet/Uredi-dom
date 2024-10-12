@@ -1,0 +1,75 @@
+#secondDivider {
+    margin-top: 50px;
+    border: #673ab7 3px solid;
+}
+
+mat-card-header {
+    font-size: 18px;
+    font-weight: bolder;
+    border-bottom: 3px solid #673ab7;
+}
+
+mat-card-content {
+    padding-top: 10px;
+    border-top: 3px solid #673ab7;
+    font-size: 18px;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+mat-card-actions{
+    justify-content: center;
+    text-align: center;
+}
+
+.Search-Label{
+    font-size: 30px;
+    font-weight: bold;
+    color: black;
+    margin-left: 30px;
+    margin-top: 30px;
+}
+
+.Search-button button {
+    font-size: 25px;
+    height: 50px;
+}
+
+.Search-input{
+    margin-left: 30px;
+    margin-top: 30px;
+}
+
+.Sort-button{
+    margin-top: 25px;
+    font-size: 25px;
+    height: 40px;
+}
+
+#checkbox {
+    margin-left: 20px;
+}
+
+mat-form-field{
+    margin-right: 30px;
+    font-size: 18px;
+}
+
+.buttons{
+    margin-left: auto;
+}
+
+button {
+    margin: 5px;
+    font-size: 18px;
+}
+
+.example-card{
+    min-width: 90%;
+}
+
+/*
+.example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+}
+*/

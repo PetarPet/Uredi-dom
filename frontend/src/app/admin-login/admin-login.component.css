@@ -1,0 +1,35 @@
+mat-grid-tile-header {
+    font-size: 30px;
+    justify-content: center;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+mat-grid-tile-footer {
+    font-size: 30px;
+    justify-content: center;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.error{
+    color: red;
+    font-size: 18px;
+    justify-content: center;
+    text-align: center;    
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    margin-bottom: 20px;
+}
+
+.example-form {
+    display: flex;
+    width: 25%;
+    flex-direction: column;
+  }
+  
+  .example-full-width {
+    width: 100%;
+    font-size: 18px;
+  }
+
+  button{
+    font-size: 18px;
+  }

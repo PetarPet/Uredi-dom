@@ -1,0 +1,54 @@
+<app-menu [logged]="logged"></app-menu>
+<mat-divider id="divider"></mat-divider>
+<div class="canvas">
+<h2>Vasa skica</h2>
+<app-canvas [mySketch]="mySketch"></app-canvas>
+</div>
+<mat-divider id="divider"></mat-divider>
+<!--TIP OBJEKTA-->
+<div class="form">
+<mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Tip</mat-label>
+    <mat-select [(ngModel)]="myObject.type" placeholder="Odaberite tip korisnika">
+        <mat-option value="stan">Stan</mat-option>
+        <mat-option value="kuca">Kuca</mat-option>
+    </mat-select>
+</mat-form-field>
+
+
+<hr>
+<!--DRZAVA-->
+<mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Drzava</mat-label>
+    <input matInput type="text" placeholder="Drzava" [(ngModel)]="myObject.state">
+</mat-form-field>
+<!--GRAD-->
+<mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Grad</mat-label>
+    <input matInput type="text" placeholder="Grad" [(ngModel)]="myObject.city">
+</mat-form-field>
+<!--ULICA-->
+<mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Ulica</mat-label>
+    <input matInput type="text" placeholder="Ulica" [(ngModel)]="myObject.street">
+</mat-form-field>
+<!--BROJ-->
+<mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Broj</mat-label>
+    <input matInput type="text" placeholder="Broj" [(ngModel)]="myObject.streetNum">
+</mat-form-field>
+<!--BROJ PROSTORIJA-->
+<mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Broj prostorija</mat-label>
+    <input matInput type="text" placeholder="Broj prostorija" [(ngModel)]="myObject.rooms">
+</mat-form-field>
+<!--KVADRATURA-->
+<mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Kvadratura</mat-label>
+    <input matInput type="text" placeholder="Kvadratura" [(ngModel)]="myObject.area">
+</mat-form-field>
+
+<button mat-raised-button color="accent" class="example-full-width" (click)="changeData()">
+    Izmeni podatke
+</button>
+</div>

@@ -1,0 +1,34 @@
+<app-menu [logged]="logged"></app-menu>
+<mat-grid-list cols="1" rowHeight="100%">
+    <mat-grid-tile>
+
+        <div class="example-form">
+
+            <div class='AboveLabel'>
+                <span *ngIf="myComment.commentText==null">Ostavi komentar</span>
+                <span *ngIf="myComment.commentText!=null">Izmeni komentar</span>
+            </div>
+            
+            <div [class.error]="message" *ngIf="message=='Morate uneti sve podatke!' || message=='Greska!' ">{{message}}</div>
+            <div [class.succ]="message" *ngIf="message!='Morate uneti sve podatke!' && message!='Greska!' ">{{message}}</div>
+
+            <!--Text komentara-->
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Komentar</mat-label>
+                <input matInput type="text" placeholder="Tekst komentara" [(ngModel)]="myComment.commentText">
+            </mat-form-field>
+
+            <!--Ocena-->
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Ocena</mat-label>
+                <input matInput type="number" placeholder="Ocena 1-5" [(ngModel)]="myComment.grade">
+            </mat-form-field>
+
+            <button mat-raised-button color="accent" class="example-full-width" (click)="addComment()">
+                <span *ngIf="myComment.commentText==null">Dodaj komentar</span>
+                <span *ngIf="myComment.commentText!=null">Izmeni komentar</span>
+            </button>
+            
+            </div>
+    </mat-grid-tile>
+</mat-grid-list>

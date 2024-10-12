@@ -1,0 +1,17 @@
+#divider {
+    border: #673ab7 3px solid;
+}
+
+table {
+    width: 100%;
+}
+
+.addNew{
+    margin: 20px;
+    font-size: 30px;
+    text-align: center;
+}
+
+.addNew button {
+    font-size: 25px;
+}

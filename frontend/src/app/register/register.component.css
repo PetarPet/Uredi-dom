@@ -1,0 +1,62 @@
+.AboveLabel{
+    justify-content: center;
+    text-align: center;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+    color: #673ab7;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    width: 100%;
+}
+
+.image-label-name{
+    display: inline;
+    color: #673ab7;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-size: 18px;
+}
+
+.image-label{
+    color: red;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-size: 18px;
+}
+
+.error{
+    color: red;
+    font-size: 18px;
+    justify-content: center;
+    text-align: center;    
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    margin-bottom: 20px;
+}
+
+.succ{
+    color: green;
+    font-size: 18px;
+    justify-content: center;
+    text-align: center;    
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    margin-bottom: 20px;
+}
+
+.example-form {
+    height: 100%;
+    display: flex;
+    width: 25%;
+    flex-direction: column;
+  }
+  
+  .example-full-width {
+    width: 100%;
+    font-size: 18px;
+  }
+
+  button{
+    font-size: 18px;
+  }
